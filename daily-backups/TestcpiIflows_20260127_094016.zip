@@ -1,0 +1,1 @@
+Error while obtaining token from UAA, with details: {"error":"invalid_client","error_description":"{\"error\":\"invalid_grant\",\"error_description\":\"User authentication failed.\"}"}
