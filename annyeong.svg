@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&amp;family=Dancing+Script:wght@700&amp;display=swap');
+
+      @keyframes draw {
+        0%   { stroke-dashoffset: 3000; fill: transparent; }
+        70%  { stroke-dashoffset: 0;    fill: transparent; }
+        100% { stroke-dashoffset: 0;    fill: #3b82f6; }
+      }
+
+      @keyframes subFade {
+        0%   { opacity: 0; transform: translateY(8px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% { filter: url(#glow1); }
+        50%       { filter: url(#glow2); }
+      }
+
+      .main-word {
+        font-family: 'Dancing Script', 'Brush Script MT', cursive;
+        font-size: 150px;
+        font-weight: 700;
+        fill: transparent;
+        stroke: #3b82f6;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 3000;
+        animation: draw 2.8s cubic-bezier(0.4,0,0.2,1) 0.3s forwards, glowPulse 3s ease-in-out 3.5s infinite;
+      }
+
+      .sub1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 24px;
+        font-weight: 400;
+        fill: #93c5fd;
+        opacity: 0;
+        animation: subFade 1s ease-out 3.2s forwards;
+      }
+
+      .sub2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 20px;
+        font-weight: 400;
+        fill: #60a5fa;
+        opacity: 0;
+        animation: subFade 1s ease-out 3.8s forwards;
+        letter-spacing: 2px;
+      }
+    </style>
+
+    <!-- Soft glow -->
+    <filter id="glow1" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Brighter glow pulse -->
+    <filter id="glow2" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Navy bg gradient (matches macbook feel) -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0d1f3c"/>
+      <stop offset="100%" stop-color="#050d1a"/>
+    </radialGradient>
+
+    <!-- Subtle center bloom -->
+    <radialGradient id="bloom" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#1e3a6e" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#050d1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="380" rx="16" fill="url(#bgGrad)"/>
+  <rect width="900" height="380" rx="16" fill="url(#bloom)"/>
+
+  <!-- The main word -->
+  <text class="main-word" x="450" y="230" text-anchor="middle" dominant-baseline="middle">
+    안녕하세요
+  </text>
+
+  <!-- Subtitle 1 -->
+  <text class="sub1" x="450" y="300" text-anchor="middle">
+    i'm Sri Durgesh 👋
+  </text>
+
+  <!-- Subtitle 2 -->
+  <text class="sub2" x="450" y="335" text-anchor="middle">
+    SAP CPI  ·  AWS Cloud  ·  AI Builder
+  </text>
+</svg>
